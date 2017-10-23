@@ -6,6 +6,22 @@ public class MyClass {
 	
 	private static String staticVar;
 	
+	public MyClass() {
+		this.num = 5;
+		this.name = "삼다수";
+	}
+	
+	public MyClass(int num) {
+		this();
+		this.num = num;
+//		this.name = "삼다수";
+	}
+	
+	public MyClass(int num, String name) {
+		this.num = num;
+		this.name = name;
+	}
+	
 	public void setNum(int num) {
 		this.num = num;
 	}
@@ -19,8 +35,8 @@ public class MyClass {
 	}
 	
 	public String getName() {
-		System.out.println(staticVar);
-		System.out.println(getClassName());
+//		System.out.println(staticVar);
+//		System.out.println(getClassName());
 		return this.name;
 	}
 	
