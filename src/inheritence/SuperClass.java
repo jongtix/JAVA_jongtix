@@ -1,8 +1,8 @@
 package inheritence;
 
 public class SuperClass {
-	private int num;
-	private String name;
+	protected int num;
+	protected String name;
 	
 	public SuperClass() {
 		

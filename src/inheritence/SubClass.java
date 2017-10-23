@@ -10,4 +10,9 @@ public class SubClass extends SuperClass {
 		super(num, name);
 	}
 	
+	@Override
+	public void printMessage() {
+		System.out.println("서브클래스의 수: " + this.num + 
+						   "\n서브클래스의 이름: " + this.name);
+	}
 }
