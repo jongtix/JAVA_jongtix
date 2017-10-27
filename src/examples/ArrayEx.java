@@ -31,6 +31,7 @@ public class ArrayEx {
 		System.out.println(myArray2.length);
 		
 		String str = "오늘 날시가 좋다.";
+		System.out.println(str);
 		String[] strArray = new String[3];
 		strArray[0] = "월요일";
 		strArray[1] = "화요일";

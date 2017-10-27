@@ -23,6 +23,5 @@ public class Calculator {
 			z = i / j;
 		}
 		System.out.println(z);
-		s.close();
 	}
 }
