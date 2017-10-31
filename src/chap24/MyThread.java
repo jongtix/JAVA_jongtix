@@ -1,4 +1,4 @@
-package chpa24;
+package chap24;
 
 public class MyThread extends Thread {
 

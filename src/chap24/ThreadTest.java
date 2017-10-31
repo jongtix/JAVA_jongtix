@@ -1,4 +1,4 @@
-package chpa24;
+package chap24;
 
 public class ThreadTest extends MyThread {
 	public static void main(String[] args) {
