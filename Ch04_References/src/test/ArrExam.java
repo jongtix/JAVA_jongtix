@@ -12,7 +12,7 @@ public class ArrExam {
 			System.out.println("--------------------------------------------------");
 			System.out.println("1. 학생수 | 2. 점수입력 | 3. 점수 리스트 | 4. 종료");
 			System.out.println("--------------------------------------------------");
-			System.out.println("선택>");
+			System.out.print("선택>");
 			int selectNo = scanner.nextInt();
 			if (selectNo == 1) {
 				System.out.print("학생수>");
@@ -21,7 +21,7 @@ public class ArrExam {
 				//입력한 수만큼 배열 생성
 			} else if (selectNo == 2) {
 				for (int i = 0; i < scores.length; i++) {
-					System.out.println("점수를 입력하세요.");
+					System.out.print("score[" + i + "] > ");
 					scores[i] = scanner.nextInt(); 
 				}
 				//점수 입력
