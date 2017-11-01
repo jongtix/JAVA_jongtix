@@ -11,7 +11,7 @@ import java.util.Scanner;
 public class TCPClient2 {
 	public static void main(String[] args) {
 		try {
-			Socket s = new Socket("localhost", 1991);
+			Socket s = new Socket("localhost", 1212);
 			System.out.println("Connected.......");
 			
 			Scanner sc = new Scanner(System.in);

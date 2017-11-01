@@ -12,7 +12,7 @@ public class TCPServer1 {
 	public static void main(String[] args) {
 		ServerSocket a;
 		try {
-			a = new ServerSocket(1991); //9999번 포트로 접속 허용 설정
+			a = new ServerSocket(1212); //9999번 포트로 접속 허용 설정
 			System.out.println("Multi-server Start!!!...");
 			
 			Socket b = a.accept();
