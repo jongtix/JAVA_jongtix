@@ -3,7 +3,7 @@ package test;
 import java.util.Scanner;
 
 public class BankApp {
-	private static Account[] accountArray = new Account[1];
+	private static Account[] accountArray = new Account[5];
 	private static Scanner scanner = new Scanner(System.in);
 
 	public static void main(String[] args) {
@@ -41,24 +41,26 @@ public class BankApp {
 
 	private static void createAccount() {
 		// Bank - 0001, 홍길동, 100000
-		for (int i = 0; i < accountArray.length; i++) {
-			System.out.print("계좌번호 : ");
-			String ano = scanner.next();
-			System.out.print("소유자 : ");
-			String onwer = scanner.next();
-			System.out.print("잔액 : ");
-			int balance = scanner.nextInt();
+		System.out.print("계좌번호 : ");
+		String ano = scanner.next();
+		System.out.print("소유자 : ");
+		String onwer = scanner.next();
+		System.out.print("잔액 : ");
+		int balance = scanner.nextInt();
 
-			accountArray[i] = new Account(ano, onwer, balance);
+	AA: for (int i = 0; i < accountArray.length; i++) {
+			if (accountArray[i] == null) {
+				accountArray[i] = new Account(ano, onwer, balance);
+				break AA;
+			}
 		}
 	}
 
 	private static void accountList() {
 		for (int i = 0; i < accountArray.length; i++) {
 			if (accountArray[i] != null) {
-				System.out.println("계좌번호 : " + accountArray[i].getAno()
-								 + ", 소유자 : " + accountArray[i].getOwner()
-								 + ", 잔액 : " + accountArray[i].getBalance() + "\n");
+				System.out.println("계좌번호 : " + accountArray[i].getAno() + ", 소유자 : " + accountArray[i].getOwner()
+						+ ", 잔액 : " + accountArray[i].getBalance() + "\n");
 			}
 		}
 	}
@@ -90,7 +92,7 @@ public class BankApp {
 				System.out.print("출금할 금액>>");
 				int money = scanner.nextInt();
 				if (accountArray[i].getBalance() - money > 0) {
-					accountArray[i].setBalance(accountArray[i].getBalance() - money);					
+					accountArray[i].setBalance(accountArray[i].getBalance() - money);
 				} else {
 					System.out.println("잔액이 부족합니다.");
 					break;
