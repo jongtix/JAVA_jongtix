@@ -1,10 +1,9 @@
-package test;
 
 import java.util.Scanner;
-public class ArrExam {
+public class ArrExamEx {
 	public static void main(String[] args) {
 		boolean run = true;
-		int studentNum = 0;//ÇÐ»ý ¼ö 
+		int studentNum = 0;//ï¿½Ð»ï¿½ ï¿½ï¿½ 
 		int [] students = new int [0];
 		int[] scores = null;
 		int i=0;
@@ -15,17 +14,17 @@ public class ArrExam {
 					
 		while(run) {
 			System.out.println("---------------------");
-			System.out.println("1.ÇÐ»ý¼ö|2.Á¡¼öÀÔ·Â|3.Á¡¼ö¸®½ºÆ®|4.Á¾·á");
+			System.out.println("1.ï¿½Ð»ï¿½ï¿½ï¿½|2.ï¿½ï¿½ï¿½ï¿½ï¿½Ô·ï¿½|3.ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®|4.ï¿½ï¿½ï¿½ï¿½");
 			System.out.println("---------------------");
-			System.out.print("¼±ÅÃ>");
+			System.out.print("ï¿½ï¿½ï¿½ï¿½>");
 			int selectNo = scanner.nextInt();
 			if(selectNo ==1) {
 			studentNum = scanner.nextInt();
 			
-			//¹è¿­°ø°£¸¸µé±â
+			//ï¿½è¿­ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			//int [] students = new int [studentNum];
-			//System.out.println(students.length+"¸í ÀÔ´Ï´Ù");
-			//System.out.println("¹è¿­ÀÔ·ÂÈ®ÀÎ"+students.length);
+			//System.out.println(students.length+"ï¿½ï¿½ ï¿½Ô´Ï´ï¿½");
+			//System.out.println("ï¿½è¿­ï¿½Ô·ï¿½È®ï¿½ï¿½"+students.length);
 			
 			
 			int[] tempArray = new int[studentNum];
@@ -34,26 +33,26 @@ public class ArrExam {
 		        tempArray[j] = students[j];
 		    }
 			students=tempArray;
-			System.out.println("ÀÔ·Â¹ÞÀº ÇÐ»ý ¼ö´Â "+students.length+"¸íÀÔ´Ï´Ù.");
+			System.out.println("ï¿½Ô·Â¹ï¿½ï¿½ï¿½ ï¿½Ð»ï¿½ ï¿½ï¿½ï¿½ï¿½ "+students.length+"ï¿½ï¿½ï¿½Ô´Ï´ï¿½.");
 			
-			}else if(selectNo==2) {//Á¡¼öÀÔ·ÂºÎ
+			}else if(selectNo==2) {//ï¿½ï¿½ï¿½ï¿½ï¿½Ô·Âºï¿½
 				
 				System.out.println(students.length);
 				for(i=0;i<students.length;i++){
-					System.out.println((i+1)+"¹øÂ° ÀÔ·ÂÀÔ´Ï´Ù.(ÃÑ "+students.length+"È¸ÀÇ ÀÔ·ÂÀ» ¹Þ°Ú½À´Ï´Ù.");
+					System.out.println((i+1)+"ï¿½ï¿½Â° ï¿½Ô·ï¿½ï¿½Ô´Ï´ï¿½.(ï¿½ï¿½ "+students.length+"È¸ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½ï¿½ ï¿½Þ°Ú½ï¿½ï¿½Ï´ï¿½.");
 					students[i]=scanner.nextInt();
 				}
 				
 			}else if(selectNo==3) {
-				System.out.println("ÃÑ "+students.length+"È¸¸¦ Ãâ·ÂÇÏ°Ú½À´Ï´Ù.");
+				System.out.println("ï¿½ï¿½ "+students.length+"È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï°Ú½ï¿½ï¿½Ï´ï¿½.");
 				for(i=0;i<students.length;i++){
-					System.out.print((i+1)+"¹øÂ° Ãâ·ÂÀÔ´Ï´Ù.");
+					System.out.print((i+1)+"ï¿½ï¿½Â° ï¿½ï¿½ï¿½ï¿½Ô´Ï´ï¿½.");
 					System.out.println(students[i]+"\t");
 				}
 			}else if(selectNo==4) {
-				run=false;//Á¾·á
+				run=false;//ï¿½ï¿½ï¿½ï¿½
 			}
-		}//while¹® Á¾·á
-		System.out.println("Á¾·á");
+		}//whileï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+		System.out.println("ï¿½ï¿½ï¿½ï¿½");
 	}
 }
