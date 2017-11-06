@@ -4,6 +4,7 @@ public class Account {
 	//속성(field)
 	private String owner;
 	private int balance;
+	
 	//동작(method)
 	public String getOwner() { //소유주 리턴
 		return owner;
