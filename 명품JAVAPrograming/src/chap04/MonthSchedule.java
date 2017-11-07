@@ -3,37 +3,39 @@ package chap04;
 import java.util.Scanner;
 
 public class MonthSchedule {
-	static Day[] days;
+	private int nDay;
+	private Day[] days;
+	private Scanner scanner = new Scanner(System.in);
+	
 	public static void main(String[] args) {
 		MonthSchedule april = new MonthSchedule(30);
 		april.run();
 	}
 	
-	MonthSchedule(int day) {
-		days = new Day[day - 1];
+	MonthSchedule(int nDay) {
+		days = new Day[nDay];
+		for (int i = 0; i < days.length; i++) {
+			days[i] = new Day();
+		}
 	}
 	
 	void input() {
-		Scanner scanner = new Scanner(System.in);
 		System.out.println("날짜(1~30)?");
 		int i = (scanner.nextInt() - 1);
-		System.out.println("할일(빈칸없이입력)?");
-		String work = scanner.next();
-		if (days[i] != null) {
-			days[i].set(work);			
+		if (i < 0 || i > 30) {
+			System.out.println("날짜를 확인해주세요.");
 		} else {
-			System.out.println((i + 1) + "일에는 이미 할 일이 있습니다.");
+			System.out.println("할일(빈칸없이입력)?");
+			String work = scanner.next();
+			days[i].set(work);						
 		}
 	}
 	
 	void view() {
-		Scanner scanner = new Scanner(System.in);
 		System.out.println("날짜(1~30)?");
 		int i = (scanner.nextInt() - 1);
-		if (days[i] != null) {
-			System.out.println(i + "일의 할 일은 ");
-			days[i].show();			
-		}
+		System.out.print((i + 1) + "일의 할 일은 ");
+		days[i].show();
 	}
 	
 	void finish() {
@@ -41,27 +43,26 @@ public class MonthSchedule {
 	}
 	
 	void run() {
-		Day[] newDay;
 		int check = 0;
-		Scanner scanner = new Scanner(System.in);
 		System.out.println("이번달 스케쥴 관리 프로그램.");
-		do {
+		while (check != 3) {
 			System.out.println("할일(입력:1, 보기:2, 끝내기:3) >>");
 			check = scanner.nextInt();
 			switch (check) {
 			case 1:
 				input();
-				break;
+				System.out.println();
+				continue;
 			case 2:
 				view();
-				break;
+				System.out.println();
+				continue;
 			case 3:
 				finish();
-				break;
-			default:
-				break;
+				System.out.println();
+				continue;
 			}			
-		} while (check == 3);
+		}
 	}
 }
 
