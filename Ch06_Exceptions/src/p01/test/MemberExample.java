@@ -45,6 +45,8 @@ public class MemberExample {
 			e.getMessage();
 		} catch (NoMatchPassword e) {
 			e.getMessage();
+		} catch (NullPointerException e) {
+			e.getMessage();
 		}
 	}
 
