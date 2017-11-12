@@ -1,10 +1,11 @@
 package chpa05;
 
+import java.lang.reflect.Array;
 import java.util.Arrays;
 
 public class Dictionary extends PairMap {
 	
-	Dictionary(int number) {
+	public Dictionary(int number) {
 		keyArray = new String[number];
 		valueArray = new String[number];
 	}
@@ -22,24 +23,23 @@ public class Dictionary extends PairMap {
 	@Override
 	void put(String key, String value) { // key와 value를 쌍으로 저장. 기존에 key가 있으면, 값을 value로 수정
 		if (Arrays.asList(keyArray).contains(key)) {
-			for (int i = 0; i < keyArray.length; i++) {
-				if (keyArray[i].equals(key)) {
-					valueArray[i] = value;
-				}
-			}
+				valueArray[Arrays.asList(keyArray).indexOf(key)] = value;
 		} else {
-			keyArray[length()] = key;
-			valueArray[length()] = value;
+			int length = length();
+			keyArray[length] = key;
+			valueArray[length] = value;
 		}
 	}
 
 	@Override
 	String delete(String key) { // key 값을 가진 아이템(value와 함께) 삭제. 삭제된 value 값 리턴
 		if (Arrays.asList(keyArray).contains(key)) {
-			keyArray[Arrays.asList(keyArray).indexOf(key)] = null;
-			valueArray[Arrays.asList(keyArray).indexOf(key)] = null;
+			int index = Arrays.asList(keyArray).indexOf(key);
+			keyArray[index] = null;
+			valueArray[index] = null;
+			return valueArray[index];
 		}
-		return valueArray[Arrays.asList(keyArray).indexOf(key)];
+		return null;
 	}
 
 	@Override
@@ -56,8 +56,8 @@ public class Dictionary extends PairMap {
 }
 
 abstract class PairMap {
-	protected String keyArray[];
-	protected String valueArray[];
+	protected String [] keyArray;
+	protected String [] valueArray;
 
 	abstract String get(String key);
 
