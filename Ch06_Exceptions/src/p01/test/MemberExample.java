@@ -1,13 +1,12 @@
 package p01.test;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Scanner;
 
 public class MemberExample {
-	static Member[] member = new Member[0];
-	static int cnt;
 	static Scanner scanner = new Scanner(System.in);
+	static Member[] member;
+	static int cnt;
 
 	public static void main(String[] args) {
 		/*
