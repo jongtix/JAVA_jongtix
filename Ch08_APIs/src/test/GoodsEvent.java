@@ -16,10 +16,8 @@ public class GoodsEvent {
 	
 	public void check(String scanner) {
 		LocalDate day = LocalDate.parse(scanner);
-		long fromStart = ChronoUnit.DAYS.between(startDate, day);
-		long toEnd = ChronoUnit.DAYS.between(day, endDate);
 		
-		if (fromStart > 0 && toEnd > 0) {
+		if (day.isBefore(startDate) && day.isAfter(endDate)) {
 			System.out.println("상품명 : " + goods.getName() + ", 가격 : " + (int) (goods.getPrice()*0.8));
 		} else {
 			System.out.println("상품명 : " + goods.getName() + ", 가격 : " + goods.getPrice());
