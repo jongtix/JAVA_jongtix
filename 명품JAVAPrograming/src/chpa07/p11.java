@@ -8,7 +8,7 @@ public class p11 {
 	Scanner scanner = new Scanner(System.in);
 
 	p11() {
-		nation = new Vector<>();
+		nation = new Vector<>(0);
 	}
 
 	void insert() {
@@ -18,9 +18,10 @@ public class p11 {
 				System.out.print("나라와 수도 입력 " + (nation.size() + 1) + " >> ");
 				String str = scanner.nextLine();
 				String country = str.split(" ")[0];
-				String capital = str.split(" ")[1];
-				if (country.equals("그만"))
+				if (country.equals("그만")) {
 					break;
+				}
+				String capital = str.split(" ")[1];
 				while (nation.iterator().hasNext()) {
 					if (nation.iterator().next().getCountry().equals(country)) {
 						System.out.println(country + "는 이미 있습니다!");
@@ -38,7 +39,6 @@ public class p11 {
 			String capital = str.split(" ")[1];
 			Nation n = new Nation(country, capital);
 			nation.add(n);
-			System.out.println(nation.size());
 		}
 	}
 
@@ -87,7 +87,6 @@ class Nation {
 	private String capital;
 
 	public Nation(String country, String capital) {
-		super();
 		this.country = country;
 		this.capital = capital;
 	}
