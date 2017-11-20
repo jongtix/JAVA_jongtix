@@ -8,8 +8,8 @@ import java.util.Scanner;
 public class p01 {
 	public static void main(String[] args) throws Exception {
 		Scanner scanner = new Scanner(System.in);
-		File dir = new File("H:\\JAVAjongtix\\명품JAVAPrograming\\src\\chap08\\temp");
-		File f = new File("H:\\JAVAjongtix\\명품JAVAPrograming\\src\\chap08\\temp\\phone.txt");
+		File dir = new File("C:\\Users\\Administrator\\Documents\\JAVAjongtix\\명품JAVAPrograming\\src\\chap08\\temp");
+		File f = new File("C:\\Users\\Administrator\\Documents\\JAVAjongtix\\명품JAVAPrograming\\src\\chap08\\temp\\phone.txt");
 		if (!dir.exists()) {
 			dir.mkdir();
 		}
