@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.util.Scanner;
 import java.util.Vector;
+import java.util.concurrent.CountDownLatch;
 
 public class p11 {
 	public static void main(String[] args) throws Exception {
@@ -20,6 +21,7 @@ public class p11 {
 		reader.close();
 		System.out.println(f.getPath() + " 파일을 읽었습니다...");
 		do {
+			boolean check = false;
 			System.out.print("단어 >> ");
 			String find = scanner.next();
 			if (find.equals("그만")) {
@@ -28,10 +30,16 @@ public class p11 {
 			}
 			for (int i = 0; i < words.size(); i++) {
 				if (words.get(i).length() >= find.length()) {
-					if (words.get(i).substring(0, find.length() - 1).equals(find)) {
+					if (words.get(i).substring(0, find.length()).equals(find)) {
 						System.out.println(words.get(i));
+						check = true;
 					}
+				} else {
+					continue;
 				}
+			}
+			if (!check) {
+				System.out.println("발견할 수 없음");
 			}
 
 		} while (true);
