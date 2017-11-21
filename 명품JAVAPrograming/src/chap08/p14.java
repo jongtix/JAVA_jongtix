@@ -1,0 +1,96 @@
+package chap08;
+
+import java.io.File;
+import java.util.NoSuchElementException;
+import java.util.Scanner;
+import java.util.StringTokenizer;
+
+public class p14 {
+	String location = "C:/";
+	File file;
+	File [] fileNames;
+	Scanner scanner = new Scanner(System.in);
+	
+	p14() {
+		file = new File(location);
+	}
+	
+	void mkdir(String XXX) {
+		File temp = new File(location + "/" + XXX);
+		temp.mkdir();
+		System.out.println(XXX + " 디렉터리를 생성하였습니다.");
+	}
+	
+	void rename(String origin, String name) {
+		file = new File(location + "/" + origin);
+		File f = new File(location + "/" + name);
+		file.renameTo(f);
+	}
+	
+	void move(String location) {
+		if (location.equals("그만")) {
+			System.exit(0);;
+		}
+		if (location.equals("..")) {
+			this.location = file.getParent();
+		} else {
+			this.location += "/" + location;
+		}
+		file = new File(this.location);
+	}
+	
+	String check(File f) {
+		if (f.isDirectory()) {
+			return "dir";
+		} else if (f.isFile()) {
+			return "file";
+		}
+		return "";
+	}
+	
+	void show() {
+		file = new File(location);
+		System.out.println("[" + file.getPath() + "]");
+		fileNames = file.listFiles();
+		for (int i = 0; i < fileNames.length; i++) {
+			System.out.println(check(fileNames[i]) + "\t" + fileNames[i].length() + "바이트\t\t" + fileNames[i].getName());
+		}
+	}
+	
+	void run() {
+		System.out.println("***** 파일 탐색기입니다. *****");
+		show();
+		do {
+			System.out.print(" >> ");
+			String location = scanner.nextLine();
+			StringTokenizer st = new StringTokenizer(location);
+			String f = st.nextToken();
+			String s;
+			String t;
+			switch (f) {
+			case "mkdir":
+				s = st.nextToken();
+				mkdir(s);
+				break;
+			case "rename":
+				try {
+					s = st.nextToken();
+					t = st.nextToken();
+					rename(s, t);
+				} catch (NoSuchElementException e) {
+					System.out.println("두 개의 파일명이 주어지지 않았습니다.!");
+				}
+				break;
+			default:
+				move(location);
+				break;
+			}
+			show();
+		} while (true);
+	}
+	
+	public static void main(String[] args) {
+		p14 go = new p14();
+		go.run();
+	}
+}
