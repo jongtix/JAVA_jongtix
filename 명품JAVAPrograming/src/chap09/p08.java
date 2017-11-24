@@ -3,6 +3,7 @@ package chap09;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Container;
+import java.awt.Font;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -35,6 +36,7 @@ public class p08 {
 			labels[i] = new JLabel("*");
 			int x = (int) (Math.random() * 300) + 100;
 			int y = (int) (Math.random() * 300) + 100;
+			labels[i].setForeground(Color.RED);
 			labels[i].setBounds(x, y, 10, 10);
 			CenterPanel.add(labels[i]);
 		}

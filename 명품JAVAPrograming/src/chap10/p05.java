@@ -2,18 +2,18 @@ package chap10;
 
 import java.awt.Container;
 import java.awt.FlowLayout;
+import java.awt.Font;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-public class p03 extends JFrame {
+public class p05 extends JFrame {
 	private JLabel l;
-	private int count;
 	
-	public p03() {
-		setTitle("Left 키로 문자열 교체");
+	public p05() {
+		setTitle("+, - 키로 폰트 크기 조절");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		Container c = getContentPane();
@@ -30,19 +30,20 @@ public class p03 extends JFrame {
 	}
 	
 	public static void main(String[] args) {
-		new p03();
+		new p05();
 	}
 	
 	class MyKeyListener extends KeyAdapter {
 		public void keyPressed(KeyEvent e) {
 			int keyCode = e.getKeyCode();
-			if (keyCode == KeyEvent.VK_LEFT) {
-				if (count%2 == 0) {
-					l.setText("avaJ evoL");					
-					count++;
-				} else {
-					l.setText("Love Java");
-					count++;
+			Font f = l.getFont();
+			int size = f.getSize();
+			if (keyCode == KeyEvent.VK_ADD) {
+				l.setFont(new Font("Arial", Font.PLAIN, size + 5));
+			}
+			if (keyCode == KeyEvent.VK_SUBTRACT) {
+				if (size > 10) {
+					l.setFont(new Font("Arial", Font.PLAIN, size - 5));
 				}
 			}
 		}

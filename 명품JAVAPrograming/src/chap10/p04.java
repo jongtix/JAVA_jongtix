@@ -8,12 +8,11 @@ import java.awt.event.KeyEvent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-public class p03 extends JFrame {
+public class p04 extends JFrame {
 	private JLabel l;
-	private int count;
 	
-	public p03() {
-		setTitle("Left 키로 문자열 교체");
+	public p04() {
+		setTitle("Left 키로 문자열 이동");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		Container c = getContentPane();
@@ -29,22 +28,29 @@ public class p03 extends JFrame {
 		c.requestFocus();
 	}
 	
-	public static void main(String[] args) {
-		new p03();
-	}
-	
 	class MyKeyListener extends KeyAdapter {
 		public void keyPressed(KeyEvent e) {
 			int keyCode = e.getKeyCode();
 			if (keyCode == KeyEvent.VK_LEFT) {
-				if (count%2 == 0) {
-					l.setText("avaJ evoL");					
-					count++;
-				} else {
-					l.setText("Love Java");
-					count++;
-				}
+				String first = l.getText().substring(0, 1);
+				String last = l.getText().substring(1);
+				l.setText(last + first);
+//				String[] str = l.getText().split("");
+//				String temp = str[0];
+//				for (int i = 0; i < str.length - 1; i++) {
+//					str[i] = str[i + 1];
+//				}
+//				str[str.length - 1] = temp;
+//				String st = "";
+//				for (int i = 0; i < str.length; i++) {
+//					st += str[i];
+//				}
+//				l.setText(st);
 			}
 		}
+	}
+	
+	public static void main(String[] args) {
+		new p04();
 	}
 }
