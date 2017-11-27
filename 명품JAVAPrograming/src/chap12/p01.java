@@ -30,7 +30,7 @@ public class p01 extends JFrame {
 
 		@Override
 		protected void paintComponent(Graphics g) {
-
+			super.paintComponent(g);
 			if (flag)
 				g.drawImage(img, 0, 0, this.getWidth(), this.getHeight(), this);
 
