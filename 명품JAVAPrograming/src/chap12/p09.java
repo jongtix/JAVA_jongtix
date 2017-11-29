@@ -17,8 +17,13 @@ public class p09 extends JFrame {
 		c.setLayout(new FlowLayout());
 		JLabel l1 = new BlueLabel();
 		l1.setText("hello");
-		l1.setFont(new Font("Arial", Font.BOLD, 50));
+		l1.setFont(new Font("Arial", Font.PLAIN, 10));
+		BlueLabel2 l2 = new BlueLabel2();
+		l2.setText("Big Hello");
+		l2.setBackground(Color.RED);
+		l2.setFont(new Font("Arial", Font.BOLD, 50));
 		c.add(l1);
+		c.add(l2);
 		setBounds(700, 300, 500, 500);
 		setVisible(true);
 	}
@@ -32,6 +37,14 @@ public class p09 extends JFrame {
 			g.setColor(Color.BLUE);
 			g.fillRect(0, 0, this.getWidth(), this.getHeight());
 			super.paintComponent(g);
+		}
+	}
+	
+	class BlueLabel2 extends JLabel {
+		@Override
+		public void setBackground(Color bg) {
+			super.setOpaque(true);
+			super.setBackground(Color.BLUE);
 		}
 	}
 }
