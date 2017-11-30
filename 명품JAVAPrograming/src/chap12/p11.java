@@ -13,30 +13,38 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 public class p11 extends JFrame {
+	JLabel[] resultL = new JLabel[4];
 	JLabel[] l = new JLabel[4];
 	JTextField[] t = new JTextField[4];
-	int[] qty = new int[4];
+	double[] qty = new double[4];
 	double[] avg = new double[4];
 	String[] str = { "apple", "cherry", "strawberry", "prune" };
 	int startAngle = 0, arcAngle = 0;
 	MyCirclePanel lc = new MyCirclePanel();
-	Color[] color = { Color.RED, Color.BLUE, Color.CYAN, Color.YELLOW };
+	Color[] color = { Color.RED, Color.BLUE, Color.MAGENTA, Color.ORANGE };
 	
 	class MyCirclePanel extends JPanel {
 		public MyCirclePanel() {
 			setLayout(null);
-			setSize(100, 100);
+			setSize(200, 200);
 		}
 
 		@Override
 		protected void paintComponent(Graphics g) {
 			super.paintComponent(g);
+			for (int i = 0; i < resultL.length; i++) {
+				g.setColor(color[i]);
+				g.drawString(str[i] + " " + (int) (Math.round(avg[i] * 100)) + "%", 80 + 150 * i, 50);
+			}
 			for (int i = 0; i < avg.length; i++) {
 				g.setColor(color[i]);
-				arcAngle = (int) (360 * avg[i]);
-				g.fillArc(100, 100, 200, 200, startAngle, arcAngle);
-				startAngle = arcAngle;
+				startAngle += arcAngle;
+				arcAngle = (int) Math.round(360 * avg[i]);
+				System.out.println("avg[i] : " + avg[i] + ", sa : " + startAngle + ", aa : " + arcAngle);
+				g.fillArc(200, 100, 200, 200, startAngle, arcAngle);
 			}
+			startAngle = 0;
+			arcAngle = 0;
 		}
 		
 	}
@@ -60,14 +68,15 @@ public class p11 extends JFrame {
 			public void actionPerformed(java.awt.event.ActionEvent e) {
 				JTextField text = (JTextField) e.getSource();
 				for (int i = 0; i < t.length; i++) {
-					qty[i] = Integer.parseInt(t[i].getText());
+					qty[i] = Double.parseDouble(t[i].getText());
 				}
-				int sum = 0;
+				double sum = 0.0;
 				for (int i = 0; i < qty.length; i++) {
 					sum += qty[i];
 				}
 				for (int i = 0; i < qty.length; i++) {
-					avg[i] = (double) qty[i] / (double) sum;
+//					avg[i] = (double) Math.round(((double) qty[i] / (double) sum * 100 ) / 100);
+					avg[i] = qty[i] / sum;
 				}
 				drawChart();
 			}
@@ -76,6 +85,9 @@ public class p11 extends JFrame {
 	}
 
 	p11() {
+		for (int i = 0; i < resultL.length; i++) {
+			resultL[i] = new JLabel("");
+		}
 		setTitle("파이 차트 그리기");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setLayout(new BorderLayout());
@@ -83,7 +95,7 @@ public class p11 extends JFrame {
 		MyPanel l = new MyPanel();
 		c.add(l, BorderLayout.NORTH);
 		c.add(lc, BorderLayout.CENTER);
-		pack();
+		setBounds(700, 300, 700, 700);
 		setVisible(true);
 	}
 	
