@@ -1,6 +1,5 @@
 package chap13;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.Graphics;
@@ -19,13 +18,8 @@ public class p05 extends JFrame {
 		setTitle("사격 게임");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		Container c = getContentPane();
-		c.add(chicken);
-		c.add(new Box());
-//		JPanel p = new JPanel();
-//		p.setLayout(null);
-//		p.add(chicken);
-//		p.add(new Box());
-//		c.add(p);
+		Game game = new Game();
+		c.add(game);
 		setBounds(700, 300, 500, 500);
 		setVisible(true);
 	}
@@ -34,6 +28,16 @@ public class p05 extends JFrame {
 		new p05();
 		ChickenThread th = new ChickenThread(chicken);
 		th.start();
+	}
+	
+	class Game extends JPanel {
+		Game() {
+			JPanel gamePanel = new JPanel();
+			gamePanel.setBackground(Color.BLACK);
+			gamePanel.add(chicken);
+//			gamePanel.add(new Box());
+			gamePanel.setSize(500, 500);
+		}
 	}
 	
 }
