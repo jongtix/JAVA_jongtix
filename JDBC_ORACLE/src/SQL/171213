@@ -1,0 +1,22 @@
+select * from emp;
+select count(*) from emp;
+select max(empno) from emp;
+
+create sequence emp_seq12
+start with 9301
+increment by 1
+nocycle;
+
+drop sequence emp_seq12;
+
+select * from test0001;
+
+drop table test0001;
+
+create table savepoint(id varchar2(10), total number(10));
+select * from savepoint;
+insert into savepoint values('sh1011', 200);
+insert into savepoint values('sh2022', 600);
+insert into savepoint values('sh3033', 1200);
+insert into savepoint values('sh4044', 2000);
+drop table savepoint;
